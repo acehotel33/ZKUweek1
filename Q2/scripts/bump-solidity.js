@@ -3,10 +3,26 @@ const solidityRegex = /pragma solidity \^\d+\.\d+\.\d+/
 
 const verifierRegex = /contract Verifier/
 
-let content = fs.readFileSync("./contracts/HelloWorldVerifier.sol", { encoding: 'utf-8' });
-let bumped = content.replace(solidityRegex, 'pragma solidity ^0.8.0');
-bumped = bumped.replace(verifierRegex, 'contract HelloWorldVerifier');
+// modify HelloWorldVerifier contract
 
-fs.writeFileSync("./contracts/HelloWorldVerifier.sol", bumped);
+let content_hello = fs.readFileSync("./contracts/HelloWorldVerifier.sol", { encoding: 'utf-8' });
+let bumped_hello = content_hello.replace(solidityRegex, 'pragma solidity ^0.8.0');
+bumped_hello = bumped_hello.replace(verifierRegex, 'contract HelloWorldVerifier');
 
-// [assignment] add your own scripts below to modify the other verifier contracts you will build during the assignment
+fs.writeFileSync("./contracts/HelloWorldVerifier.sol", bumped_hello);
+
+// modify Multiplier3 contract
+
+let content_m3 = fs.readFileSync("./contracts/Multiplier3.sol", { encoding: 'utf-8' });
+let bumped_m3 = content_m3.replace(solidityRegex, 'pragma solidity ^0.8.0');
+bumped_m3 = bumped_m3.replace(verifierRegex, 'contract HelloWorldVerifier');
+
+fs.writeFileSync("./contracts/HelloWorldVerifier.sol", bumped_m3);
+
+// modify _plonkMultiplier3 contract
+
+let content_pm3 = fs.readFileSync("./contracts/Multiplier3.sol", { encoding: 'utf-8' });
+let bumped_pm3 = content_pm3.replace(solidityRegex, 'pragma solidity ^0.8.0');
+bumped_pm3 = bumped_pm3.replace(verifierRegex, 'contract HelloWorldVerifier');
+
+fs.writeFileSync("./contracts/HelloWorldVerifier.sol", bumped_pm3);
